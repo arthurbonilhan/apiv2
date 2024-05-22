@@ -15,7 +15,7 @@ const db = JSON.parse(fs.readFileSync(path.join("db.json")))
 // const router = jsonServer.router(db)
 
 // Comment out to allow write operations
-const router = jsonServer.router('db.json') || jsonServer.router(db)
+const router = jsonServer.router(db)
 
 const middlewares = jsonServer.defaults()
 
