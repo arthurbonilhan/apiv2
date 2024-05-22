@@ -2,6 +2,9 @@
 const jsonServer = require('json-server')
 
 const server = jsonServer.create()
+const fs = require("fs")
+const path = require("path")
+const db = JSON.parse(fs.readFileSync(path.join("db.json")))
 
 // Uncomment to allow write operations
 // const fs = require('fs')
@@ -12,7 +15,7 @@ const server = jsonServer.create()
 // const router = jsonServer.router(db)
 
 // Comment out to allow write operations
-const router = jsonServer.router('db.json')
+const router = jsonServer.router('db.json') || jsonServer.router(db)
 
 const middlewares = jsonServer.defaults()
 
